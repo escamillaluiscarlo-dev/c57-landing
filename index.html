@@ -1234,7 +1234,9 @@ footer{background:var(--ink);padding:30px clamp(20px,5vw,80px);display:flex;alig
 @media(max-width:960px){
   .u3-grid{grid-template-columns:1fr;grid-template-rows:auto auto auto auto;}
   .u3-title{grid-column:1;grid-row:1;padding-right:0;}
-  .u3-map{grid-column:1;grid-row:2;min-height:260px;}
+  .u3-map{grid-column:1;grid-row:2;min-height:200px;max-height:220px;}
+  .u3-map .imap-wrap2{min-height:200px;max-height:220px;}
+  .u3-map .imap-base{object-fit:contain;object-position:center center;background:var(--ink);}
   .u3-routes{grid-column:1;grid-row:3;border-right:1px solid rgba(201,164,75,.2);}
   .u3-stats{grid-column:1;grid-row:4;}
 }
@@ -1818,7 +1820,7 @@ footer{background:var(--ink);padding:30px clamp(20px,5vw,80px);display:flex;alig
   display:flex;
   position:fixed;
   top:calc(64px + env(safe-area-inset-top,0px));
-  left:0;bottom:0;
+  left:0;
   width:min(250px,84vw);
   height:auto;
   z-index:490;
