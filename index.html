@@ -1946,9 +1946,10 @@ footer{background:var(--ink);padding:30px clamp(20px,5vw,80px);display:flex;alig
   .ent-ns-info{padding:16px !important;gap:8px !important;}
   .ent-big{font-size:clamp(1.3rem,5vw,1.7rem) !important;letter-spacing:-1px !important;}
   .ent-sub{font-size:.78rem !important;max-width:100% !important;}
-  /* Stats grid: 2 cols so cards are wide enough */
-  .ent-stats{grid-template-columns:1fr 1fr !important;}
-  .ent-stat-dark .esc-num{font-size:.9rem !important;letter-spacing:0 !important;line-height:1.35 !important;font-weight:700 !important;}
+  /* Stats grid: keep 3 cols, shrink numbers to fit, span Aeropuerto full row */
+  .esc-num{font-size:clamp(1.1rem,4.8vw,2rem) !important;}
+  .ent-stat-dark{grid-column:1/-1 !important;}
+  .ent-stat-dark .esc-num{font-size:.88rem !important;letter-spacing:0 !important;line-height:1.35 !important;font-weight:700 !important;}
 
   /* Secciones con layout 2 col que no colapsan en 960px */
   .u3-grid{grid-template-columns:1fr !important;grid-template-rows:auto !important;}
