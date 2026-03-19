@@ -1777,6 +1777,139 @@ footer{background:var(--ink);padding:30px clamp(20px,5vw,80px);display:flex;alig
   font-size:.78rem;color:var(--mist);line-height:1.65;
 }
 
+
+/* ════════════════════════════════════════
+   MOBILE RESPONSIVE — Menú hamburguesa y ajustes móvil
+   ════════════════════════════════════════ */
+
+/* Ocultar cursor personalizado en dispositivos táctiles */
+@media(hover:none),(pointer:coarse){
+  #cur,#ring{display:none;}
+  body{cursor:auto;}
+  a,button,.rc,.park-t,.route,.fr,.dev-cell,.gar-photo,.fi,.nav-btn{cursor:pointer;}
+}
+
+/* ── Botón hamburguesa ── */
+.ham-btn{
+  display:none;
+  flex-direction:column;justify-content:center;align-items:center;
+  width:40px;height:40px;gap:5px;
+  background:none;border:none;cursor:pointer;padding:4px;
+  z-index:600;
+}
+.ham-btn span{
+  display:block;width:22px;height:2px;
+  background:var(--cream);border-radius:2px;
+  transition:transform .3s,opacity .3s;
+}
+.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.ham-btn.open span:nth-child(2){opacity:0;}
+.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* ── Menú móvil overlay ── */
+.mob-nav{
+  display:none;
+  position:fixed;inset:0;z-index:490;
+  background:rgba(5,8,15,.97);
+  backdrop-filter:blur(20px);
+  flex-direction:column;justify-content:center;align-items:center;
+  gap:0;
+  padding-top:64px;
+}
+.mob-nav.open{display:flex;}
+.mob-nav a{
+  font-family:"Syne",sans-serif;font-size:1.2rem;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:var(--mist);
+  text-decoration:none;padding:18px 40px;width:100%;text-align:center;
+  border-bottom:1px solid rgba(201,164,75,.07);
+  transition:color .2s,background .2s;
+}
+.mob-nav a:hover,.mob-nav a:active{color:var(--gold);background:rgba(201,164,75,.04);}
+.mob-nav .mob-cta{
+  margin-top:28px;color:var(--gold);
+  border:1px solid rgba(201,164,75,.4) !important;
+  border-bottom:1px solid rgba(201,164,75,.4) !important;
+}
+
+/* ── Breakpoint principal: 768px ── */
+@media(max-width:768px){
+  :root{--gap:clamp(40px,6vw,64px);}
+
+  /* Mostrar hamburguesa, ocultar links y CTA del nav */
+  .ham-btn{display:flex;}
+  nav .nav-links{display:none !important;}
+  nav .nav-btn{display:none;}
+
+  /* Hero */
+  .hero{padding-top:64px;min-height:100svh;}
+  .hero-body{grid-template-columns:1fr !important;gap:32px;}
+  .hero-right{display:none;} /* ocultar imagen derecha para dar espacio */
+  .h-tag{font-size:.6rem;}
+  .h-ttl{font-size:clamp(2rem,8vw,3rem) !important;}
+  .h-sub{font-size:.85rem;}
+  .hero-btns{flex-direction:column;gap:10px;}
+  .hero-btns a{width:100%;text-align:center;}
+
+  /* KPIs */
+  .kpis{grid-template-columns:1fr 1fr !important;}
+  .kpi-n{font-size:1.8rem;}
+
+  /* Statband */
+  .statband-row{grid-template-columns:1fr 1fr !important;}
+
+  /* Renta */
+  .renta-intro{grid-template-columns:1fr !important;}
+  .renta-cards{grid-template-columns:1fr !important;}
+  .renta-beneficios{grid-template-columns:1fr !important;}
+
+  /* Ubicación */
+  .ubic-layout{grid-template-columns:1fr !important;}
+
+  /* Entorno */
+  .ent-cols{grid-template-columns:1fr !important;}
+
+  /* Funcionalidad */
+  .func-layout{grid-template-columns:1fr !important;}
+
+  /* Fideicomisos / galería */
+  .fidei-layout{grid-template-columns:1fr !important;}
+  .gar-photos{grid-template-columns:1fr !important;}
+  .gar-cards{grid-template-columns:1fr !important;}
+
+  /* Parques / competencia */
+  .parks-grid{grid-template-columns:1fr !important;}
+  .parques-top{grid-template-columns:1fr !important;}
+
+  /* Dev grid */
+  .dev-grid{grid-template-columns:1fr !important;}
+
+  /* Contacto */
+  .contact-inner{grid-template-columns:1fr !important;gap:32px;}
+  .c2-inner{grid-template-columns:1fr !important;}
+  .c2-field-row{grid-template-columns:1fr !important;}
+  .cl-btns{flex-direction:column;}
+
+  /* Secciones con layout 2 col que no colapsan en 960px */
+  .u3-grid{grid-template-columns:1fr !important;grid-template-rows:auto !important;}
+
+  /* Footer */
+  footer{flex-direction:column;text-align:center;gap:12px;}
+
+  /* Textos section padding */
+  section,.s-wrap{padding-left:clamp(16px,5vw,32px) !important;padding-right:clamp(16px,5vw,32px) !important;}
+}
+
+/* ── Breakpoint chico: 480px ── */
+@media(max-width:480px){
+  .kpis{grid-template-columns:1fr !important;}
+  .statband-row{grid-template-columns:1fr !important;}
+  .kpi-n{font-size:2rem;}
+  .ph-n{font-size:2.4rem !important;}
+  .ent-big{font-size:1.8rem !important;}
+  .rb-title{font-size:1.6rem !important;}
+  .s-ttl{font-size:1.7rem !important;}
+  .cl-h{font-size:1.7rem !important;}
+}
 </style>
 </head>
 <body>
@@ -1801,6 +1934,19 @@ footer{background:var(--ink);padding:30px clamp(20px,5vw,80px);display:flex;alig
     <li><a href="#contacto">Contacto</a></li>
   </ul>
   <a href="#contacto" class="nav-btn"><span>Agendar visita →</span></a>
+  <button class="ham-btn" id="hamBtn" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MENÚ MÓVIL OVERLAY -->
+<nav class="mob-nav" id="mobNav">
+  <a href="#renta" class="mob-link">Rentar</a>
+  <a href="#ubicacion" class="mob-link">Ubicación</a>
+  <a href="#entorno" class="mob-link">Entorno</a>
+  <a href="#funcionalidad" class="mob-link">Infraestructura</a>
+  <a href="#contacto" class="mob-link">Contacto</a>
+  <a href="#contacto" class="mob-link mob-cta">Agendar visita →</a>
 </nav>
 
 
@@ -2417,6 +2563,31 @@ footer{background:var(--ink);padding:30px clamp(20px,5vw,80px);display:flex;alig
   <div class="ft">En el centro del Desarrollo Industrial · Querétaro, México</div>
   <div class="ft">Corporativo Isakar · Cesmarq · © 2026</div>
 </footer>
+
+<!-- MENÚ HAMBURGUESA JS -->
+<script>
+(function(){
+  var btn = document.getElementById('hamBtn');
+  var nav = document.getElementById('mobNav');
+  if(!btn || !nav) return;
+
+  function toggleMenu(){
+    btn.classList.toggle('open');
+    nav.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  }
+  btn.addEventListener('click', toggleMenu);
+
+  // Cerrar al hacer click en un link
+  nav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      btn.classList.remove('open');
+      nav.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+})();
+</script>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── CURSOR PERSONALIZADO ── */
