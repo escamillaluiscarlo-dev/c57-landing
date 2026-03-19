@@ -1238,8 +1238,8 @@ footer{background:var(--ink);padding:30px clamp(20px,5vw,80px);display:flex;alig
   .u3-map .imap-wrap2{min-height:200px;max-height:220px;}
   .u3-map .imap-base{object-fit:cover;object-position:center 30%;transform:scale(1.01);transform-origin:center center;}
   /* expanded fullscreen state */
-  .u3-map.map-expanded{position:fixed !important;inset:0 !important;min-height:unset !important;max-height:unset !important;z-index:800;background:#05080f;cursor:default;}
-  .u3-map.map-expanded .imap-wrap2{position:absolute !important;inset:0 !important;min-height:unset !important;max-height:unset !important;}
+  .u3-map.map-expanded{position:fixed !important;inset:0 !important;min-height:unset !important;max-height:unset !important;z-index:800;background:#05080f;cursor:default;display:flex !important;align-items:center !important;justify-content:center !important;}
+  .u3-map.map-expanded .imap-wrap2{position:relative !important;inset:unset !important;flex:unset !important;width:100% !important;aspect-ratio:16/9;min-height:unset !important;max-height:unset !important;}
   .u3-map.map-expanded .imap-base{object-fit:cover !important;object-position:center center !important;transform:none !important;}
   .u3-routes{grid-column:1;grid-row:3;border-right:1px solid rgba(201,164,75,.2);}
   .u3-stats{grid-column:1;grid-row:4;}
@@ -2240,7 +2240,7 @@ footer{background:var(--ink);padding:30px clamp(20px,5vw,80px);display:flex;alig
       <div class="u3-block-label">Rutas directas</div>
       <div class="u3-route-list">
         <div class="u3-route"><span class="u3-dir">↑ N</span><div><div class="u3-rname">Carretera Federal 57</div><div class="u3-rdest">San Luis Potosí · Monterrey</div></div></div>
-        <div class="u3-route"><span class="u3-dir">↙ SW</span><div><div class="u3-rname">Libramiento 57D</div><div class="u3-rdest">CDMX · San Juan del Río</div></div></div>
+        <div class="u3-route"><span class="u3-dir">&#x2199;&#xFE0E; SW</span><div><div class="u3-rname">Libramiento 57D</div><div class="u3-rdest">CDMX · San Juan del Río</div></div></div>
         <div class="u3-route"><span class="u3-dir">← W</span><div><div class="u3-rname">Carretera Federal 111</div><div class="u3-rdest">San Miguel de Allende</div></div></div>
         <div class="u3-route"><span class="u3-dir">↓ S</span><div><div class="u3-rname">Carretera 57 retorno</div><div class="u3-rdest">Querétaro · Celaya · Bajío</div></div></div>
         <div class="u3-route"><span class="u3-dir">→ E</span><div><div class="u3-rname">Carretera Estatal 500</div><div class="u3-rdest">Chichimequillas</div></div></div>
