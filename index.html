@@ -1819,10 +1819,14 @@ footer{background:var(--ink);padding:30px clamp(20px,5vw,80px);display:flex;alig
   position:fixed;
   top:calc(64px + env(safe-area-inset-top,0px));
   left:0;bottom:0;
-  width:min(220px,75vw);
+  width:min(250px,84vw);
+  height:auto;
   z-index:490;
   background:transparent;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
   border-right:1px solid rgba(201,164,75,.18);
+  border-bottom:none;
   box-shadow:6px 0 32px rgba(0,0,0,.6);
   flex-direction:column;
   justify-content:flex-start;
@@ -1849,7 +1853,7 @@ footer{background:var(--ink);padding:30px clamp(20px,5vw,80px);display:flex;alig
 .mob-nav.open a:nth-child(6){animation:mobLinkIn .28s ease .30s both;}
 .mob-nav a{
   font-family:"Syne",sans-serif;font-size:.7rem;font-weight:700;
-  letter-spacing:2px;text-transform:uppercase;color:var(--cream);
+  letter-spacing:1.5px;text-transform:uppercase;color:var(--cream);
   text-decoration:none;
   display:block;
   margin:2px 0;
