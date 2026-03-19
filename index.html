@@ -1808,15 +1808,32 @@ footer{background:var(--ink);padding:30px clamp(20px,5vw,80px);display:flex;alig
 
 /* ── Menú móvil overlay ── */
 .mob-nav{
-  display:none;
+  display:flex;
   position:fixed;inset:0;z-index:490;
   background:rgba(5,8,15,.97);
   backdrop-filter:blur(20px);
   flex-direction:column;justify-content:center;align-items:center;
   gap:0;
-  padding-top:64px;
+  padding-top:calc(64px + env(safe-area-inset-top,0px));
+  padding-bottom:env(safe-area-inset-bottom,20px);
+  /* smooth open/close animation */
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:translateY(-14px);
+  transition:opacity .3s ease,transform .3s ease,visibility 0s linear .3s;
 }
-.mob-nav.open{display:flex;}
+.mob-nav.open{
+  opacity:1;visibility:visible;pointer-events:auto;
+  transform:translateY(0);
+  transition:opacity .3s ease,transform .3s ease,visibility 0s linear 0s;
+}
+/* staggered link entrance */
+@keyframes mobLinkIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.mob-nav.open a:nth-child(1){animation:mobLinkIn .32s ease .06s both;}
+.mob-nav.open a:nth-child(2){animation:mobLinkIn .32s ease .12s both;}
+.mob-nav.open a:nth-child(3){animation:mobLinkIn .32s ease .18s both;}
+.mob-nav.open a:nth-child(4){animation:mobLinkIn .32s ease .24s both;}
+.mob-nav.open a:nth-child(5){animation:mobLinkIn .32s ease .30s both;}
+.mob-nav.open a:nth-child(6){animation:mobLinkIn .32s ease .36s both;}
 .mob-nav a{
   font-family:"Syne",sans-serif;font-size:1.2rem;font-weight:700;
   letter-spacing:3px;text-transform:uppercase;color:var(--mist);
@@ -1829,6 +1846,10 @@ footer{background:var(--ink);padding:30px clamp(20px,5vw,80px);display:flex;alig
   margin-top:28px;color:var(--gold);
   border:1px solid rgba(201,164,75,.4) !important;
   border-bottom:1px solid rgba(201,164,75,.4) !important;
+}
+/* very small screens (≤360px) */
+@media(max-width:360px){
+  .mob-nav a{font-size:1rem;padding:15px 24px;letter-spacing:2px;}
 }
 
 /* ── Breakpoint principal: 768px ── */
@@ -2585,6 +2606,15 @@ footer{background:var(--ink);padding:30px clamp(20px,5vw,80px);display:flex;alig
       nav.classList.remove('open');
       document.body.style.overflow = '';
     });
+  });
+
+  // Cerrar con tecla Escape
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && nav.classList.contains('open')){
+      btn.classList.remove('open');
+      nav.classList.remove('open');
+      document.body.style.overflow = '';
+    }
   });
 })();
 </script>
