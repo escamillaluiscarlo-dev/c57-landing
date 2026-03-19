@@ -1236,7 +1236,7 @@ footer{background:var(--ink);padding:30px clamp(20px,5vw,80px);display:flex;alig
   .u3-title{grid-column:1;grid-row:1;padding-right:0;}
   .u3-map{grid-column:1;grid-row:2;min-height:200px;max-height:220px;}
   .u3-map .imap-wrap2{min-height:200px;max-height:220px;}
-  .u3-map .imap-base{object-fit:contain;object-position:center center;background:var(--ink);}
+  .u3-map .imap-base{object-fit:cover;object-position:center 30%;}
   .u3-routes{grid-column:1;grid-row:3;border-right:1px solid rgba(201,164,75,.2);}
   .u3-stats{grid-column:1;grid-row:4;}
 }
@@ -1931,6 +1931,12 @@ footer{background:var(--ink);padding:30px clamp(20px,5vw,80px);display:flex;alig
   .c2-inner{grid-template-columns:1fr !important;}
   .c2-field-row{grid-template-columns:1fr !important;}
   .cl-btns{flex-direction:column;}
+
+  /* Nearshoring */
+  .ent-nearshoring{grid-template-columns:1fr !important;}
+  .ent-ns-img{min-height:200px;}
+  .ent-ns-title{font-size:1.2rem !important;}
+  .ent-ns-info{padding:20px !important;}
 
   /* Secciones con layout 2 col que no colapsan en 960px */
   .u3-grid{grid-template-columns:1fr !important;grid-template-rows:auto !important;}
